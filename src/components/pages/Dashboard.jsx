@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
 import Card from "@/components/atoms/Card";
 import Button from "@/components/atoms/Button";
@@ -12,9 +13,10 @@ import { ordersService } from "@/services/api/ordersService";
 const Dashboard = () => {
   const [listings, setListings] = useState([]);
   const [sales, setSales] = useState([]);
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeTab, setActiveTab] = useState("overview");
+  const [exporting, setExporting] = useState(false);
 
   const loadDashboardData = async () => {
     try {
@@ -58,8 +60,20 @@ const Dashboard = () => {
       pendingOrders
     };
   };
+const stats = getStats();
 
-  const stats = getStats();
+  const handleExportListings = async () => {
+    try {
+      setExporting(true);
+      await listingsService.exportToZip();
+      toast.success("Listings exported successfully!");
+    } catch (error) {
+      console.error("Export failed:", error);
+      toast.error("Failed to export listings");
+    } finally {
+      setExporting(false);
+    }
+  };
 
   const tabs = [
     { id: "overview", label: "Overview", icon: "BarChart3" },
@@ -152,6 +166,25 @@ const Dashboard = () => {
               <Button variant="outline" size="lg" className="h-20 flex-col">
                 <ApperIcon name="BarChart3" className="w-6 h-6 mb-2" />
                 View Analytics
+</Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="h-20 flex-col"
+                onClick={handleExportListings}
+                disabled={exporting}
+              >
+                {exporting ? (
+                  <>
+                    <ApperIcon name="Loader2" className="w-6 h-6 mb-2 animate-spin" />
+                    Exporting...
+                  </>
+                ) : (
+                  <>
+                    <ApperIcon name="Download" className="w-6 h-6 mb-2" />
+                    Export Data
+                  </>
+                )}
               </Button>
               <Button variant="outline" size="lg" className="h-20 flex-col">
                 <ApperIcon name="Settings" className="w-6 h-6 mb-2" />

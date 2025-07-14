@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
 import OrderCard from "@/components/molecules/OrderCard";
 import Loading from "@/components/ui/Loading";
@@ -10,9 +11,10 @@ import { ordersService } from "@/services/api/ordersService";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
+const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filterStatus, setFilterStatus] = useState("all");
+  const [exporting, setExporting] = useState(false);
 
   const statusFilters = [
     { value: "all", label: "All Orders", icon: "Package" },
@@ -44,7 +46,20 @@ const Orders = () => {
 
   const handleViewDetails = (order) => {
     console.log("View order details:", order);
-    // In real app, navigate to order details page or open modal
+// In real app, navigate to order details page or open modal
+  };
+
+  const handleExportOrders = async () => {
+    try {
+      setExporting(true);
+      await ordersService.exportToZip();
+      toast.success("Orders exported successfully!");
+    } catch (error) {
+      console.error("Export failed:", error);
+      toast.error("Failed to export orders");
+    } finally {
+      setExporting(false);
+    }
   };
 
   const filteredOrders = filterStatus === "all" 
@@ -140,11 +155,31 @@ const Orders = () => {
               <Badge variant="secondary">
                 {filteredOrders.length} {filteredOrders.length === 1 ? "order" : "orders"}
               </Badge>
+</div>
+            <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={handleExportOrders}
+                disabled={exporting || orders.length === 0}
+              >
+                {exporting ? (
+                  <>
+                    <ApperIcon name="Loader2" className="w-4 h-4 animate-spin" />
+                    Exporting...
+                  </>
+                ) : (
+                  <>
+                    <ApperIcon name="Download" className="w-4 h-4" />
+                    Export
+                  </>
+                )}
+              </Button>
+              <Button variant="outline" size="sm" onClick={loadOrders}>
+                <ApperIcon name="RefreshCw" className="w-4 h-4" />
+                Refresh
+              </Button>
             </div>
-            <Button variant="outline" size="sm" onClick={loadOrders}>
-              <ApperIcon name="RefreshCw" className="w-4 h-4" />
-              Refresh
-            </Button>
           </div>
 
           {filteredOrders.length === 0 ? (

@@ -86,7 +86,39 @@ export const listingsService = {
   },
 
   async getBySeller(seller) {
+return listings.filter(listing => listing.seller === seller);
+  },
+
+  async exportToZip() {
     await delay();
-    return listings.filter(listing => listing.seller === seller);
+    try {
+      const JSZip = (await import('jszip')).default;
+      const zip = new JSZip();
+      
+      // Add listings data to ZIP
+      const exportData = {
+        listings: [...listings],
+        exportDate: new Date().toISOString(),
+        totalCount: listings.length
+      };
+      
+      zip.file("listings.json", JSON.stringify(exportData, null, 2));
+      
+      // Generate and download ZIP
+      const content = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(content);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `nexus-listings-${new Date().toISOString().split('T')[0]}.zip`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      
+      return true;
+    } catch (error) {
+      console.error('Export failed:', error);
+      throw new Error('Failed to export listings');
+    }
   }
 };

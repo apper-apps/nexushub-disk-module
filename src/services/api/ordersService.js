@@ -86,7 +86,40 @@ export const ordersService = {
     orders[index] = {
       ...orders[index],
       status: "completed"
-    };
+};
     return { ...orders[index] };
+  },
+
+  async exportToZip() {
+    await delay();
+    try {
+      const JSZip = (await import('jszip')).default;
+      const zip = new JSZip();
+      
+      // Add orders data to ZIP
+      const exportData = {
+        orders: [...orders],
+        exportDate: new Date().toISOString(),
+        totalCount: orders.length
+      };
+      
+      zip.file("orders.json", JSON.stringify(exportData, null, 2));
+      
+      // Generate and download ZIP
+      const content = await zip.generateAsync({ type: "blob" });
+      const url = URL.createObjectURL(content);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `nexus-orders-${new Date().toISOString().split('T')[0]}.zip`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      
+      return true;
+    } catch (error) {
+      console.error('Export failed:', error);
+      throw new Error('Failed to export orders');
+    }
   }
 };
