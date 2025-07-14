@@ -1,0 +1,30 @@
+[
+  {
+    "address": "0x742d35Cc6634C0532925a3b8D698e5e9d3f4e1a4",
+    "username": "CryptoTrader",
+    "rating": 4.8,
+    "totalSales": 156,
+    "joinedAt": "2023-06-15T08:30:00Z"
+  },
+  {
+    "address": "CryptoArtist",
+    "username": "Digital Artist",
+    "rating": 4.9,
+    "totalSales": 89,
+    "joinedAt": "2023-03-20T14:20:00Z"
+  },
+  {
+    "address": "BlockchainDev",
+    "username": "Smart Contract Developer",
+    "rating": 5.0,
+    "totalSales": 234,
+    "joinedAt": "2022-11-10T10:15:00Z"
+  },
+  {
+    "address": "GameStudio",
+    "username": "Metaverse Game Studio",
+    "rating": 4.7,
+    "totalSales": 67,
+    "joinedAt": "2023-08-05T16:45:00Z"
+  }
+]

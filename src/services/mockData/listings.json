@@ -1,0 +1,124 @@
+[
+  {
+    "Id": 1,
+    "title": "Rare Digital Art Collection",
+    "description": "A unique collection of 10 digital artworks created by renowned blockchain artist. Each piece represents a different aspect of the decentralized future. This collection includes exclusive animated NFTs with embedded smart contracts for future royalty distribution.",
+    "price": 25.5,
+    "currency": "NXS",
+    "category": "Digital Art",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "CryptoArtist",
+    "status": "active",
+    "createdAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "Id": 2,
+    "title": "Smart Contract Development Service",
+    "description": "Professional smart contract development and auditing services for DeFi protocols, NFT marketplaces, and custom blockchain applications. Includes comprehensive testing, security analysis, and deployment assistance on Nexus blockchain.",
+    "price": 150.0,
+    "currency": "NXS",
+    "category": "Services",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "BlockchainDev",
+    "status": "active",
+    "createdAt": "2024-01-14T14:20:00Z"
+  },
+  {
+    "Id": 3,
+    "title": "Gaming Asset Pack",
+    "description": "Complete gaming asset package including character models, weapons, environments, and sound effects. All assets are blockchain-verified and can be used across multiple metaverse platforms with integrated ownership tracking.",
+    "price": 45.75,
+    "currency": "NXS",
+    "category": "Gaming",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "GameStudio",
+    "status": "active",
+    "createdAt": "2024-01-13T09:15:00Z"
+  },
+  {
+    "Id": 4,
+    "title": "DeFi Liquidity Pool Tokens",
+    "description": "High-yield liquidity pool tokens from established DeFi protocols. These tokens provide passive income through automated market making and yield farming strategies. Includes detailed performance analytics and risk assessment.",
+    "price": 100.0,
+    "currency": "NXS",
+    "category": "DeFi",
+    "images": [
+      "/api/placeholder/500/500"
+    ],
+    "seller": "DeFiTrader",
+    "status": "active",
+    "createdAt": "2024-01-12T16:45:00Z"
+  },
+  {
+    "Id": 5,
+    "title": "Virtual Real Estate Plot",
+    "description": "Prime virtual real estate in the emerging Nexus metaverse. This plot includes building rights, resource mining capabilities, and strategic location benefits. Perfect for virtual businesses, events, or personal development projects.",
+    "price": 200.25,
+    "currency": "NXS",
+    "category": "Virtual Real Estate",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "MetaverseDev",
+    "status": "active",
+    "createdAt": "2024-01-11T11:30:00Z"
+  },
+  {
+    "Id": 6,
+    "title": "Blockchain Consulting Package",
+    "description": "Comprehensive blockchain consulting services including technology assessment, implementation strategy, and ongoing support. Our team has successfully launched over 50 blockchain projects with a focus on scalability and security.",
+    "price": 300.0,
+    "currency": "NXS",
+    "category": "Services",
+    "images": [
+      "/api/placeholder/500/500"
+    ],
+    "seller": "ConsultingPro",
+    "status": "active",
+    "createdAt": "2024-01-10T13:20:00Z"
+  },
+  {
+    "Id": 7,
+    "title": "Exclusive Music NFT",
+    "description": "Limited edition music NFT featuring an unreleased track from a platinum-selling artist. Includes exclusive access to future releases, concert tickets, and behind-the-scenes content. Only 100 copies will ever be minted.",
+    "price": 75.5,
+    "currency": "NXS",
+    "category": "Music",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "MusicLabel",
+    "status": "active",
+    "createdAt": "2024-01-09T15:10:00Z"
+  },
+  {
+    "Id": 8,
+    "title": "Crypto Mining Hardware",
+    "description": "Professional-grade cryptocurrency mining hardware optimized for Nexus blockchain. Includes setup guide, warranty, and ongoing technical support. High efficiency with low power consumption for maximum profitability.",
+    "price": 500.0,
+    "currency": "NXS",
+    "category": "Hardware",
+    "images": [
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500",
+      "/api/placeholder/500/500"
+    ],
+    "seller": "TechSupplier",
+    "status": "sold",
+    "createdAt": "2024-01-08T10:00:00Z"
+  }
+]
