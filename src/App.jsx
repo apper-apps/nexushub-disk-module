@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Header from "@/components/organisms/Header";
+import Deployment from "@/components/pages/Deployment";
 import CartSidebar from "@/components/organisms/CartSidebar";
-import Browse from "@/components/pages/Browse";
+import Header from "@/components/organisms/Header";
 import Sell from "@/components/pages/Sell";
 import Orders from "@/components/pages/Orders";
 import Dashboard from "@/components/pages/Dashboard";
+import Browse from "@/components/pages/Browse";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -44,7 +45,7 @@ function App() {
       />
 
       <main>
-        <Routes>
+<Routes>
           <Route 
             path="/" 
             element={
@@ -57,6 +58,7 @@ function App() {
           <Route path="/sell" element={<Sell />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/deployment" element={<Deployment />} />
         </Routes>
       </main>
 
